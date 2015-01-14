@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Project Rodan Dashboard</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/dashboard.css" rel="stylesheet">
+
+    <!-- jquery script -->
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>	
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <style id="holderjs-style" type="text/css"></style>
+  
+  <script>
+
+    function moveSelected(from,to) {
+       $('#'+from+' option:selected').remove().appendTo('#'+to);
+    }
+
+
+  </script>
+    
+  </head>
+
+  <body style="">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          {% if user.is_authenticated %}
+          <a class="navbar-brand" href="http://en.wikipedia.org/wiki/Rodan_(film)">Project Rodan - {{user.username}}</a>
+          {% else %}
+          <a class="navbar-brand" href="http://en.wikipedia.org/wiki/Rodan_(film)">Project Rodan</a>
+          {% endif %}
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Settings</a></li>
+            <li><a href="{% url 'profiles.views.edit_profile' %}">Profile</a></li>
+            <li><a href="{% url 'report.views.user_logout' %}">Logout</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <select size = 10 id ="from">
+    {% for c in client_list %}
+	<option>{{ c.clientname }}
+    {% endfor %}
+    </select>
+
+    <div class="btn-group-vertical">
+	<button type="button" class="btn btn-default" onclick="moveSelected('from','to');">Add</button>
+  	<button type="button" class="btn btn-default" onclick="moveSelected('to','from');">Remove</button>
+   </div>
+
+  
+    
+    <select multiple id="to" size="10">
+    </select>
+
+</body>
+</html>

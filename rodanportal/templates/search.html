@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Search Rendering Tool</title>
+        <!-- Latest compiled and minified CSS -->
+       
+        
+        <style>
+            html {
+                min-width: 100%;
+                min-height: 100%;
+                width: 180px;
+                height: 100px;
+            }
+            
+            body {
+                width: 180px;
+                height: 100px;
+                
+            }
+
+            
+            searchchart {
+                width: 202px;
+                height: 140px;
+            }
+            
+
+        </style>
+        
+    </head>
+    <body>
+         
+ 
+        <!-- jquery files from CDN -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+        <!-- D3 JS from CDN  -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.1/d3.js"></script>
+ 
+        <!-- d3 word cloud template -->
+        <script src = "/static/js/d3.layout.cloud.js"></script>
+
+        
+
+
+        <!-- START CHART ROWS HERE -->
+       <div id="searchchart">
+             {% block searchcontent %}
+                       <p>search here</p>
+              {% endblock %}
+        </div>
+
+
+    </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DMM Rendering Tool</title>
+        <!-- Latest compiled and minified CSS -->
+       
+        
+        <style>
+            html {
+                min-width: 100%;
+                min-height: 100%;
+                width: 240px;
+                height: 320px;
+            }
+            
+            body {
+                width: 240px;
+                height: 320px;
+                
+            }
+
+            svg {
+                background-color: #E7ECEF;
+            }
+            
+            circlechart {
+                width: 240px;
+                height: 320px;
+            }
+            
+	    line.arrow {
+                stroke: #FFF;
+                stroke-width: 1px;
+            }
+
+            marker#arrow {
+                fill: #FFF;
+            }
+
+           
+        </style>
+        
+    </head>
+    <body>
+ 
+        <!-- jquery files from CDN -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+        <!-- D3 JS from CDN  -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.1/d3.js"></script>
+ 
+
+        <!-- START CHART ROWS HERE -->
+       <div id="circlechart">
+             {% block graphcontentrow1 %}
+                       <p>dmm here</p>
+              {% endblock %}
+        </div>
+
+
+    </body>
+</html>

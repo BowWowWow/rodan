@@ -1,0 +1,27 @@
+from django.conf.urls import patterns, include, url
+
+from django.contrib import admin
+# from report import *
+
+admin.autodiscover()
+
+urlpatterns = patterns('',
+    # Examples:
+    # url(r'^$', 'rodanportal.views.home', name='home'),
+    # url(r'^blog/', include('blog.urls')),
+
+    url(r'^admin/', include(admin.site.urls)),
+    # jpb, added include for report URLs
+    url(r'^report/',include('report.urls')),
+
+    # jpb, added for report app home page - don't remove
+    # url(r'^report/',report.views.index, name = 'index'),
+    
+    # jpb, 3/28 added for django-registration testing
+    url(r'^accounts/',include('registration.backends.default.urls')),
+
+    # jpb, 3/28 added for home page
+    url(r'^$','report.views.index',name = 'index'),
+
+
+)
